@@ -1,0 +1,33 @@
+---
+import { SITE, WHATSAPP_LINK } from '../config';
+
+interface Props {
+  heading?: string;
+  sub?: string;
+}
+const {
+  heading = 'Have something to buy or sell?',
+  sub = 'Post your requirement in two minutes — we will call you back with a workable rate.',
+} = Astro.props;
+---
+
+<section class="mx-auto mt-16 max-w-6xl px-4">
+  <div class="rounded-3xl bg-forest-600 px-6 py-10 text-center text-cream-50 sm:px-12">
+    <h2 class="font-display text-2xl font-semibold sm:text-3xl">{heading}</h2>
+    <p class="mx-auto mt-3 max-w-xl text-cream-100/90">{sub}</p>
+    <div class="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <a
+        href="/contact/"
+        class="w-full rounded-full bg-cream-100 px-6 py-3 font-semibold text-forest-700 shadow transition hover:bg-cream-50 sm:w-auto"
+        >Post Your Requirement</a
+      >
+      <a
+        href={WHATSAPP_LINK}
+        target="_blank"
+        rel="noopener"
+        class="w-full rounded-full border border-cream-100/40 px-6 py-3 font-semibold text-cream-50 transition hover:bg-forest-700 sm:w-auto"
+        >WhatsApp {SITE.phoneDisplay}</a
+      >
+    </div>
+  </div>
+</section>

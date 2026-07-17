@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SITE, WHATSAPP_LINK } from '../config';
+
+const title = 'About Subbaraju Brokerage | Agri Commodity Brokers, Challakere';
+const description =
+  'About Subbaraju Brokerage — an agricultural commodity brokerage based in Challakere, Chitradurga district, Karnataka. Local market knowledge, verified network, honest dealing.';
+---
+
+<Layout title={title} description={description}>
+  <section class="mx-auto max-w-4xl px-4 pt-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-ink/60">
+      <a href="/" class="hover:underline">Home</a> › <span>About</span>
+    </nav>
+    <h1 class="mt-4 font-display text-4xl font-semibold text-forest-800">
+      About Subbaraju Brokerage
+    </h1>
+
+    <p class="mt-5 text-lg leading-relaxed text-ink/85">
+      Subbaraju Brokerage is an agricultural commodity brokerage based in
+      <strong>Challakere, Chitradurga district, Karnataka</strong>. We connect the people who grow,
+      mill and manufacture agri commodities with the people who buy, distribute and retail them —
+      across Karnataka and into neighbouring states.
+    </p>
+
+    <h2 class="mt-10 font-display text-2xl font-semibold text-forest-700">Why Challakere</h2>
+    <p class="mt-3 leading-relaxed text-ink/85">
+      Challakere is one of central Karnataka’s most important agricultural trading towns. Its
+      market yard has been a hub for the groundnut trade for generations — the town is often
+      called the region’s “oil city” — and the surrounding dryland belt produces maize, ragi,
+      pulses and more. Sitting on the highway between Bengaluru and North Karnataka, Challakere
+      is a natural meeting point between the growing belts and the consuming markets.
+    </p>
+    <p class="mt-3 leading-relaxed text-ink/85">
+      Being physically present in this market matters. Rates in agri trade change daily —
+      sometimes hourly — and a broker who walks the yard, sees the arrivals and talks to the
+      traders knows the real price, not the rumoured one. That is the knowledge we put to work
+      for every client.
+    </p>
+
+    <h2 class="mt-10 font-display text-2xl font-semibold text-forest-700">Our Experience</h2>
+    <p class="mt-3 leading-relaxed text-ink/85">
+      Our family has been part of the Challakere commodity trade for years. In that time we have
+      built working relationships with rice mills, dal mills, roasting units, feed plants,
+      wholesale merchants and transporters across Karnataka. Those relationships are the real
+      asset a broker offers: when you post a requirement with us, it goes to people we know will
+      perform — lift on time, deliver the agreed grade, and pay as promised.
+    </p>
+
+    <h2 class="mt-10 font-display text-2xl font-semibold text-forest-700">How We Think About Trust</h2>
+    <div class="mt-4 space-y-4">
+      <div class="rounded-2xl border border-forest-600/10 bg-cream-50 p-5">
+        <h3 class="font-display text-lg font-semibold text-forest-700">Describe lots honestly</h3>
+        <p class="mt-1 leading-relaxed text-ink/80">
+          Moisture, mixing, grade — a lot is described exactly as it is. A buyer surprised at
+          unloading is a buyer lost forever, and we intend to trade with the same people for
+          decades.
+        </p>
+      </div>
+      <div class="rounded-2xl border border-forest-600/10 bg-cream-50 p-5">
+        <h3 class="font-display text-lg font-semibold text-forest-700">Fix everything up front</h3>
+        <p class="mt-1 leading-relaxed text-ink/80">
+          Rate, brokerage, weighment terms, payment schedule — all agreed before the lorry is
+          loaded. No deductions invented later, on either side.
+        </p>
+      </div>
+      <div class="rounded-2xl border border-forest-600/10 bg-cream-50 p-5">
+        <h3 class="font-display text-lg font-semibold text-forest-700">Stay until it is settled</h3>
+        <p class="mt-1 leading-relaxed text-ink/80">
+          Our involvement doesn’t end when the deal is fixed. We track dispatch, delivery and
+          payment, and we pick up the phone when you call.
+        </p>
+      </div>
+    </div>
+
+    <h2 class="mt-10 font-display text-2xl font-semibold text-forest-700">Where We Operate</h2>
+    <p class="mt-3 leading-relaxed text-ink/85">
+      We are based in Challakere and serve buyers and sellers across the whole of
+      <strong>Karnataka, Andhra Pradesh and Tamil Nadu</strong> — from the mandis of central
+      Karnataka to feed mills, processors and wholesale markets in all three states. We speak
+      Kannada, English, Hindi and Telugu, so language is never a barrier to a deal.
+    </p>
+
+    <p class="mt-8 rounded-2xl bg-forest-100/60 p-6 text-lg leading-relaxed text-forest-800">
+      The simplest way to judge a broker is to do one deal. Call us at
+      <a href={`tel:${SITE.phoneRaw}`} class="font-semibold underline underline-offset-4">{SITE.phoneDisplay}</a>,
+      <a href={WHATSAPP_LINK} target="_blank" rel="noopener" class="font-semibold underline underline-offset-4">WhatsApp us</a>,
+      or <a href="/contact/" class="font-semibold underline underline-offset-4">post your requirement</a> —
+      and see how we work.
+    </p>
+  </section>
+
+  <CtaBand />
+</Layout>

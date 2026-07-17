@@ -1,0 +1,335 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE, SUBMIT_LEAD_URL, WHATSAPP_LINK } from '../config';
+import { commodities } from '../data/commodities';
+
+const title = 'Post Your Requirement | Contact Subbaraju Brokerage, Challakere';
+const description =
+  'Post your buying or selling requirement with Subbaraju Brokerage, Challakere — rice, groundnut, maize, toor dal, gram, fried gram, husk, ragi. We call back with a rate.';
+
+const units = ['Quintal', 'Ton (MT)', 'Kg', 'Bags', 'Lorry load'];
+---
+
+<Layout title={title} description={description}>
+  <section class="mx-auto max-w-6xl px-4 pt-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-ink/60">
+      <a href="/" class="hover:underline">Home</a> › <span>Contact</span>
+    </nav>
+    <h1 class="mt-4 font-display text-4xl font-semibold text-forest-800">Post Your Requirement</h1>
+    <p class="mt-4 max-w-3xl text-lg leading-relaxed text-ink/80">
+      Tell us what you want to buy or sell. We will call you back — usually the same day — with a
+      workable market rate. Prefer to talk? Call
+      <a href={`tel:${SITE.phoneRaw}`} class="font-semibold text-forest-600 underline underline-offset-4">{SITE.phoneDisplay}</a>
+      or
+      <a href={WHATSAPP_LINK} target="_blank" rel="noopener" class="font-semibold text-forest-600 underline underline-offset-4">WhatsApp us</a>
+      directly.
+    </p>
+
+    <div class="mt-10 grid gap-10 lg:grid-cols-3">
+      <!-- Form -->
+      <div class="lg:col-span-2">
+        <form
+          id="lead-form"
+          class="rounded-3xl border border-forest-600/10 bg-cream-50 p-6 sm:p-8"
+          novalidate
+        >
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label for="name" class="block text-sm font-semibold text-forest-800">
+                Your name <span class="text-red-700">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                maxlength="100"
+                autocomplete="name"
+                class="mt-1.5 w-full rounded-xl border border-forest-600/20 bg-white px-4 py-2.5 focus:border-forest-600 focus:outline-none focus:ring-2 focus:ring-forest-600/20"
+              />
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-semibold text-forest-800">
+                Phone / WhatsApp number <span class="text-red-700">*</span>
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                inputmode="tel"
+                maxlength="16"
+                autocomplete="tel"
+                placeholder="98XXXXXXXX"
+                class="mt-1.5 w-full rounded-xl border border-forest-600/20 bg-white px-4 py-2.5 focus:border-forest-600 focus:outline-none focus:ring-2 focus:ring-forest-600/20"
+              />
+            </div>
+
+            <fieldset class="sm:col-span-2">
+              <legend class="text-sm font-semibold text-forest-800">
+                I want to <span class="text-red-700">*</span>
+              </legend>
+              <div class="mt-2 flex gap-3">
+                <label
+                  class="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl border border-forest-600/20 bg-white px-4 py-3 font-semibold text-forest-800 has-[:checked]:border-forest-600 has-[:checked]:bg-forest-600 has-[:checked]:text-cream-50"
+                >
+                  <input type="radio" name="side" value="Buy" class="sr-only" checked />
+                  🛒 Buy
+                </label>
+                <label
+                  class="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl border border-forest-600/20 bg-white px-4 py-3 font-semibold text-forest-800 has-[:checked]:border-forest-600 has-[:checked]:bg-forest-600 has-[:checked]:text-cream-50"
+                >
+                  <input type="radio" name="side" value="Sell" class="sr-only" />
+                  🌾 Sell
+                </label>
+              </div>
+            </fieldset>
+
+            <div>
+              <label for="commodity" class="block text-sm font-semibold text-forest-800">
+                Commodity <span class="text-red-700">*</span>
+              </label>
+              <select
+                id="commodity"
+                name="commodity"
+                required
+                class="mt-1.5 w-full rounded-xl border border-forest-600/20 bg-white px-4 py-2.5 focus:border-forest-600 focus:outline-none focus:ring-2 focus:ring-forest-600/20"
+              >
+                <option value="" disabled selected>Select a commodity</option>
+                {commodities.map((c) => <option value={c.name}>{c.name}</option>)}
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label for="quantity" class="block text-sm font-semibold text-forest-800">Quantity</label>
+                <input
+                  type="number"
+                  id="quantity"
+                  name="quantity"
+                  min="0"
+                  step="any"
+                  inputmode="decimal"
+                  class="mt-1.5 w-full rounded-xl border border-forest-600/20 bg-white px-4 py-2.5 focus:border-forest-600 focus:outline-none focus:ring-2 focus:ring-forest-600/20"
+                />
+              </div>
+              <div>
+                <label for="unit" class="block text-sm font-semibold text-forest-800">Unit</label>
+                <select
+                  id="unit"
+                  name="unit"
+                  class="mt-1.5 w-full rounded-xl border border-forest-600/20 bg-white px-4 py-2.5 focus:border-forest-600 focus:outline-none focus:ring-2 focus:ring-forest-600/20"
+                >
+                  {units.map((u) => <option value={u}>{u}</option>)}
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="price" class="block text-sm font-semibold text-forest-800">
+                Expected price (₹, optional)
+              </label>
+              <input
+                type="text"
+                id="price"
+                name="price"
+                maxlength="50"
+                placeholder="e.g. 5200 per quintal"
+                class="mt-1.5 w-full rounded-xl border border-forest-600/20 bg-white px-4 py-2.5 focus:border-forest-600 focus:outline-none focus:ring-2 focus:ring-forest-600/20"
+              />
+            </div>
+
+            <div class="sm:col-span-2">
+              <label for="notes" class="block text-sm font-semibold text-forest-800">
+                Notes (variety, quality, location… optional)
+              </label>
+              <textarea
+                id="notes"
+                name="notes"
+                rows="3"
+                maxlength="1000"
+                class="mt-1.5 w-full rounded-xl border border-forest-600/20 bg-white px-4 py-2.5 focus:border-forest-600 focus:outline-none focus:ring-2 focus:ring-forest-600/20"
+              ></textarea>
+            </div>
+          </div>
+
+          <p id="form-error" class="mt-4 hidden rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-800" role="alert"></p>
+
+          <button
+            type="submit"
+            id="submit-btn"
+            class="mt-6 w-full rounded-full bg-forest-600 px-8 py-3.5 text-lg font-semibold text-cream-50 shadow-md transition hover:bg-forest-700 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            Send Requirement
+          </button>
+          <p class="mt-3 text-center text-xs text-ink/60">
+            After sending, WhatsApp will open with your requirement pre-filled — just press send
+            there too, so we get it on our phone instantly.
+          </p>
+        </form>
+
+        <!-- Thank-you state (hidden until submit succeeds) -->
+        <div
+          id="thank-you"
+          class="hidden rounded-3xl border border-forest-600/20 bg-forest-100/60 p-8 text-center"
+          role="status"
+        >
+          <span class="text-5xl" aria-hidden="true">✅</span>
+          <h2 class="mt-4 font-display text-2xl font-semibold text-forest-800">
+            Requirement received — thank you!
+          </h2>
+          <p class="mx-auto mt-3 max-w-md leading-relaxed text-forest-800/80">
+            We will call you back shortly, usually within a few working hours. If WhatsApp opened
+            in another tab, press send there too so we have your requirement on our phone.
+          </p>
+          <a
+            href="/"
+            class="mt-6 inline-block rounded-full bg-forest-600 px-6 py-2.5 font-semibold text-cream-50 transition hover:bg-forest-700"
+            >Back to home</a
+          >
+        </div>
+      </div>
+
+      <!-- Direct contact sidebar -->
+      <aside class="space-y-5">
+        <div class="rounded-2xl border border-forest-600/10 bg-cream-50 p-6">
+          <h2 class="font-display text-lg font-semibold text-forest-700">Call us</h2>
+          <p class="mt-2">
+            <a href={`tel:${SITE.phoneRaw}`} class="text-xl font-semibold text-forest-600 hover:underline">
+              {SITE.phoneDisplay}
+            </a>
+          </p>
+          <p class="mt-1 text-sm text-ink/70">Kannada · English · Hindi · Telugu</p>
+        </div>
+        <div class="rounded-2xl border border-forest-600/10 bg-cream-50 p-6">
+          <h2 class="font-display text-lg font-semibold text-forest-700">WhatsApp</h2>
+          <p class="mt-2 text-sm leading-relaxed text-ink/80">
+            Fastest way to reach us — send your requirement, photos of your lot, or just say
+            hello.
+          </p>
+          <a
+            href={WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener"
+            class="mt-3 inline-block rounded-full bg-forest-600 px-5 py-2.5 text-sm font-semibold text-cream-50 transition hover:bg-forest-700"
+            >Open WhatsApp chat</a
+          >
+        </div>
+        <div class="rounded-2xl border border-forest-600/10 bg-cream-50 p-6">
+          <h2 class="font-display text-lg font-semibold text-forest-700">Visit us</h2>
+          <address class="mt-2 text-sm not-italic leading-relaxed text-ink/80">
+            Sri Simhadri Traders<br />
+            {SITE.address.locality}, {SITE.address.district}<br />
+            {SITE.address.region} — {SITE.address.postalCode}
+          </address>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <script
+    is:inline
+    define:vars={{ submitLeadUrl: SUBMIT_LEAD_URL, anonKey: SITE.supabaseAnonKey, waNumber: SITE.whatsappNumber }}
+  >
+    const form = document.getElementById('lead-form');
+    const thankYou = document.getElementById('thank-you');
+    const errorBox = document.getElementById('form-error');
+    const submitBtn = document.getElementById('submit-btn');
+
+    // Prefill side + commodity from links like /contact/?side=Buy&commodity=Rice
+    const params = new URLSearchParams(location.search);
+    const qSide = params.get('side');
+    const qCommodity = params.get('commodity');
+    if (qSide === 'Buy' || qSide === 'Sell') {
+      const radio = form.querySelector(`input[name="side"][value="${qSide}"]`);
+      if (radio) radio.checked = true;
+    }
+    if (qCommodity) {
+      const select = form.querySelector('#commodity');
+      for (const opt of select.options) {
+        if (opt.value.toLowerCase() === qCommodity.toLowerCase()) {
+          select.value = opt.value;
+          break;
+        }
+      }
+    }
+
+    function showError(msg) {
+      errorBox.textContent = msg;
+      errorBox.classList.remove('hidden');
+      errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBox.classList.add('hidden');
+
+      const data = {
+        name: form.name.value.trim(),
+        phone: form.phone.value.trim(),
+        side: form.querySelector('input[name="side"]:checked')?.value || '',
+        commodity: form.commodity.value,
+        quantity: form.quantity.value ? Number(form.quantity.value) : null,
+        unit: form.unit.value,
+        price: form.price.value.trim() || null,
+        notes: form.notes.value.trim() || null,
+      };
+
+      // Client-side validation
+      if (!data.name) return showError('Please enter your name.');
+      const phoneDigits = data.phone.replace(/[^0-9]/g, '');
+      if (phoneDigits.length < 10 || phoneDigits.length > 12)
+        return showError('Please enter a valid 10-digit mobile number.');
+      if (!data.commodity) return showError('Please select a commodity.');
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      let saved = false;
+      try {
+        const res = await fetch(submitLeadUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            apikey: anonKey,
+            Authorization: `Bearer ${anonKey}`,
+          },
+          body: JSON.stringify(data),
+        });
+        saved = res.ok;
+        if (!saved) {
+          const body = await res.json().catch(() => ({}));
+          console.error('submit-lead failed', res.status, body);
+        }
+      } catch (err) {
+        console.error('submit-lead network error', err);
+      }
+
+      // Open prefilled WhatsApp regardless — so the lead is never lost.
+      const waText = [
+        `Hi Subbaraju Brokerage, I want to *${data.side}*.`,
+        `Commodity: ${data.commodity}`,
+        data.quantity ? `Quantity: ${data.quantity} ${data.unit}` : null,
+        data.price ? `Expected price: ${data.price}` : null,
+        data.notes ? `Notes: ${data.notes}` : null,
+        `— ${data.name}, ${data.phone}`,
+      ]
+        .filter(Boolean)
+        .join('\n');
+      window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`, '_blank');
+
+      if (saved) {
+        form.classList.add('hidden');
+        thankYou.classList.remove('hidden');
+        thankYou.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Requirement';
+        showError(
+          'We could not save your requirement online, but WhatsApp has opened with your message — please press send there, or call us directly.'
+        );
+      }
+    });
+  </script>
+</Layout>

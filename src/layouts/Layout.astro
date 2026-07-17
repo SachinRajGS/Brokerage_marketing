@@ -1,0 +1,108 @@
+---
+import '../styles/global.css';
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/schibsted-grotesk';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../config';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Optional override, defaults to current page path */
+  ogType?: string;
+}
+
+const { title, description, ogType = 'website' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/og.png', Astro.site);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${Astro.site}#business`,
+  name: SITE.name,
+  description: `Agricultural commodity brokerage in Challakere, Karnataka. Brokers for rice, groundnut, maize, toor dal, gram, gram dal, gram flour, fried gram, peas, husk, cashew cake and ragi — serving buyers and sellers across Karnataka, Andhra Pradesh and Tamil Nadu.`,
+  url: String(Astro.site),
+  telephone: SITE.phoneRaw,
+  email: SITE.email,
+  image: String(ogImage),
+  priceRange: '₹₹',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: SITE.address.locality,
+    addressRegion: SITE.address.region,
+    postalCode: SITE.address.postalCode,
+    addressCountry: SITE.address.country,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 14.3119,
+    longitude: 76.6512,
+  },
+  areaServed: SITE.areaServed.map((name) => ({ '@type': 'Place', name })),
+  knowsAbout: [
+    'Rice brokerage',
+    'Groundnut trading',
+    'Maize trading',
+    'Toor dal',
+    'Bengal gram',
+    'Gram dal',
+    'Gram flour (besan)',
+    'Fried gram',
+    'Dried peas',
+    'Husk for cattle feed',
+    'Cashew shell cake',
+    'Agricultural commodities',
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: SITE.phoneRaw,
+    contactType: 'sales',
+    availableLanguage: ['Kannada', 'English', 'Hindi', 'Telugu'],
+  },
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-forest-600 focus:px-3 focus:py-2 focus:text-cream-50"
+      >Skip to content</a
+    >
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

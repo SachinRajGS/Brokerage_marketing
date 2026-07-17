@@ -1,0 +1,43 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Brand palette — Subbaraju Brokerage */
+  --color-forest-50: #f0f5f1;
+  --color-forest-100: #dce8de;
+  --color-forest-200: #b9d1bf;
+  --color-forest-300: #8fb399;
+  --color-forest-400: #629171;
+  --color-forest-500: #447355;
+  --color-forest-600: #2f5d3a; /* primary brand green */
+  --color-forest-700: #274c31;
+  --color-forest-800: #1f3d28;
+  --color-forest-900: #182f20;
+  --color-cream-50: #faf7f0;
+  --color-cream-100: #f4efe6; /* primary brand cream */
+  --color-cream-200: #e9e0cf;
+  --color-cream-300: #d9cbb1;
+  --color-ink: #22301f;
+
+  --font-display: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Schibsted Grotesk Variable', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream-100 font-sans text-ink antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply font-display;
+}
+
+/* Mobile nav (pure CSS, no JS) */
+#nav-toggle:checked ~ .mobile-menu {
+  display: block;
+}

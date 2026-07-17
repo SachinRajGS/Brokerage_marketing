@@ -1,0 +1,85 @@
+---
+import { SITE } from '../config';
+
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/commodities/', label: 'Commodities' },
+  { href: '/how-it-works/', label: 'How It Works' },
+  { href: '/about/', label: 'About' },
+  { href: '/contact/', label: 'Contact' },
+];
+const current = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? current === '/' : current.startsWith(href.replace(/\/$/, ''));
+---
+
+<header class="sticky top-0 z-40 border-b border-forest-600/10 bg-cream-100/95 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
+    <a href="/" class="flex items-center gap-2" aria-label={`${SITE.name} — home`}>
+      <span
+        class="flex h-10 w-10 items-center justify-center rounded-full bg-forest-600 font-display text-lg font-bold text-cream-100"
+        aria-hidden="true">SB</span
+      >
+      <span class="leading-tight">
+        <span class="block font-display text-lg font-semibold text-forest-700">{SITE.name}</span>
+        <span class="block text-xs text-forest-600/80">Challakere, Karnataka</span>
+      </span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Main">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            aria-current={isActive(item.href) ? 'page' : undefined}
+            class={`text-sm font-medium transition-colors hover:text-forest-600 ${
+              isActive(item.href) ? 'text-forest-600 underline underline-offset-4' : 'text-ink/80'
+            }`}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a
+        href="/contact/"
+        class="rounded-full bg-forest-600 px-4 py-2 text-sm font-semibold text-cream-50 shadow-sm transition-colors hover:bg-forest-700"
+        >Post Requirement</a
+      >
+    </nav>
+
+    <!-- Mobile nav (CSS-only) -->
+    <div class="md:hidden">
+      <input type="checkbox" id="nav-toggle" class="peer sr-only" />
+      <label
+        for="nav-toggle"
+        class="flex cursor-pointer items-center rounded-lg border border-forest-600/20 p-2 text-forest-700"
+        aria-label="Open menu"
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </label>
+      <nav
+        class="mobile-menu absolute left-0 right-0 top-full hidden border-b border-forest-600/10 bg-cream-50 px-4 pb-4 shadow-lg"
+        aria-label="Mobile"
+      >
+        {
+          nav.map((item) => (
+            <a
+              href={item.href}
+              class="block border-b border-forest-600/10 py-3 font-medium text-ink/90"
+            >
+              {item.label}
+            </a>
+          ))
+        }
+        <a
+          href="/contact/"
+          class="mt-3 block rounded-full bg-forest-600 px-4 py-2.5 text-center font-semibold text-cream-50"
+          >Post Your Requirement</a
+        >
+      </nav>
+    </div>
+  </div>
+</header>

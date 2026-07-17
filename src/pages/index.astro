@@ -1,0 +1,171 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SITE, WHATSAPP_LINK } from '../config';
+import { commodities } from '../data/commodities';
+
+const title = 'Agri Commodity Broker in Challakere, Karnataka | Subbaraju Brokerage';
+const description =
+  'Subbaraju Brokerage — trusted agricultural commodity brokers in Challakere, Karnataka. We connect buyers and sellers of rice, groundnut, maize, toor dal, gram, fried gram and husk. Post your requirement today.';
+
+const whyUs = [
+  {
+    title: 'On-the-ground in Challakere',
+    body: 'We work from the Challakere market itself — one of Karnataka’s key agri trading towns — so our rates come from the yard, not from a screen.',
+  },
+  {
+    title: 'Verified counterparties',
+    body: 'We deal with mills, traders and buyers we know. New parties are vetted before your goods or money move.',
+  },
+  {
+    title: 'Honest quality description',
+    body: 'Lots are described as they are — moisture, grade and mixing included. Repeat business matters more to us than one fast deal.',
+  },
+  {
+    title: 'Deal to delivery',
+    body: 'We stay involved after the price is fixed: weighment, dispatch, transport and payment follow-up until both sides are settled.',
+  },
+];
+
+const steps = [
+  { n: '1', t: 'Post your requirement', d: 'Tell us what you want to buy or sell — commodity, quantity and expected price.' },
+  { n: '2', t: 'We match & negotiate', d: 'We find the right counterparty from our network and negotiate a fair market rate.' },
+  { n: '3', t: 'Deal, dispatch, payment', d: 'Quality is confirmed, goods move, and we follow up until payment is settled.' },
+];
+---
+
+<Layout title={title} description={description}>
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-cream-50 to-cream-100">
+    <div class="mx-auto max-w-6xl px-4 pb-14 pt-12 text-center sm:pb-20 sm:pt-20">
+      <p class="text-sm font-semibold uppercase tracking-widest text-forest-500">
+        Challakere · Chitradurga · Karnataka
+      </p>
+      <h1 class="mx-auto mt-3 max-w-3xl font-display text-4xl font-semibold leading-tight text-forest-800 sm:text-5xl">
+        Agricultural Commodity Brokers in Challakere, Karnataka
+      </h1>
+      <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-ink/80">
+        We connect <strong>buyers</strong> — retailers, distributors and wholesalers — with
+        <strong>sellers</strong> — farmers, millers and manufacturers — for rice, groundnut, maize,
+        toor dal, gram, fried gram, husk and more. Fair rates, verified parties, deals that close.
+      </p>
+      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a
+          href="/contact/"
+          class="w-full rounded-full bg-forest-600 px-8 py-3.5 text-lg font-semibold text-cream-50 shadow-md transition hover:bg-forest-700 sm:w-auto"
+          >Post Your Requirement</a
+        >
+        <a
+          href={WHATSAPP_LINK}
+          target="_blank"
+          rel="noopener"
+          class="w-full rounded-full border-2 border-forest-600 px-8 py-3.5 text-lg font-semibold text-forest-700 transition hover:bg-forest-50 sm:w-auto"
+          >WhatsApp {SITE.phoneDisplay}</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- What we do -->
+  <section class="mx-auto mt-16 max-w-6xl px-4">
+    <h2 class="text-center font-display text-3xl font-semibold text-forest-800">What We Do</h2>
+    <div class="mx-auto mt-8 grid max-w-4xl gap-6 sm:grid-cols-2">
+      <div class="rounded-2xl border border-forest-600/10 bg-cream-50 p-6">
+        <h3 class="font-display text-xl font-semibold text-forest-700">For Buyers</h3>
+        <p class="mt-2 leading-relaxed text-ink/80">
+          Retailers, distributors, wholesalers, feed mills and processors: get direct access to
+          mills and producers in Karnataka’s growing belts. Genuine quality, fair market rates and
+          reliable dispatch — from a few quintals to full lorry loads.
+        </p>
+      </div>
+      <div class="rounded-2xl border border-forest-600/10 bg-cream-50 p-6">
+        <h3 class="font-display text-xl font-semibold text-forest-700">For Sellers</h3>
+        <p class="mt-2 leading-relaxed text-ink/80">
+          Farmers, millers and manufacturers: reach verified buyers beyond your local circle. We
+          quote realistic same-day rates, arrange lifting quickly and follow up on payment until
+          you are settled.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Commodities -->
+  <section class="mx-auto mt-16 max-w-6xl px-4">
+    <h2 class="text-center font-display text-3xl font-semibold text-forest-800">
+      Commodities We Broker
+    </h2>
+    <p class="mx-auto mt-3 max-w-2xl text-center text-ink/70">
+      Every commodity page has details on varieties, grades and how we work with buyers and
+      sellers.
+    </p>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        commodities.map((c) => (
+          <a
+            href={`/commodities/${c.slug}/`}
+            class="group rounded-2xl border border-forest-600/10 bg-cream-50 p-5 transition hover:-translate-y-0.5 hover:border-forest-600/30 hover:shadow-md"
+          >
+            <span class="text-3xl" aria-hidden="true">
+              {c.emoji}
+            </span>
+            <h3 class="mt-3 font-display text-lg font-semibold text-forest-700 group-hover:underline">
+              {c.name}
+            </h3>
+            <p class="text-sm text-forest-500">{c.kannada}</p>
+            <p class="mt-2 text-sm leading-relaxed text-ink/70">{c.card}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Why choose us -->
+  <section class="mx-auto mt-16 max-w-6xl px-4">
+    <h2 class="text-center font-display text-3xl font-semibold text-forest-800">
+      Why Traders Choose Subbaraju Brokerage
+    </h2>
+    <div class="mt-8 grid gap-6 sm:grid-cols-2">
+      {
+        whyUs.map((item) => (
+          <div class="flex gap-4 rounded-2xl border border-forest-600/10 bg-cream-50 p-6">
+            <span
+              class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-forest-100 text-forest-700"
+              aria-hidden="true"
+            >
+              ✓
+            </span>
+            <div>
+              <h3 class="font-display text-lg font-semibold text-forest-700">{item.title}</h3>
+              <p class="mt-1 leading-relaxed text-ink/75">{item.body}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="mx-auto mt-16 max-w-6xl px-4">
+    <h2 class="text-center font-display text-3xl font-semibold text-forest-800">How It Works</h2>
+    <div class="mt-8 grid gap-6 sm:grid-cols-3">
+      {
+        steps.map((s) => (
+          <div class="rounded-2xl border border-forest-600/10 bg-cream-50 p-6 text-center">
+            <span class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-forest-600 font-display text-xl font-bold text-cream-50">
+              {s.n}
+            </span>
+            <h3 class="mt-4 font-display text-lg font-semibold text-forest-700">{s.t}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/75">{s.d}</p>
+          </div>
+        ))
+      }
+    </div>
+    <p class="mt-6 text-center">
+      <a href="/how-it-works/" class="font-semibold text-forest-600 underline underline-offset-4 hover:text-forest-700">
+        See the full buyer and seller process →
+      </a>
+    </p>
+  </section>
+
+  <CtaBand />
+</Layout>

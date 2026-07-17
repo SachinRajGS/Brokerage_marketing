@@ -1,0 +1,76 @@
+---
+import { SITE, WHATSAPP_LINK } from '../config';
+import { commodities } from '../data/commodities';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-16 bg-forest-800 text-cream-100">
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
+    <div>
+      <p class="font-display text-xl font-semibold">{SITE.name}</p>
+      <p class="mt-2 text-sm leading-relaxed text-cream-100/80">
+        Agricultural commodity brokers based in Challakere, Chitradurga district, Karnataka.
+        Connecting buyers and sellers of rice, groundnut, maize, pulses and more across South
+        India.
+      </p>
+    </div>
+
+    <nav aria-label="Footer — pages">
+      <p class="font-display font-semibold">Pages</p>
+      <ul class="mt-3 space-y-2 text-sm text-cream-100/80">
+        <li><a class="hover:text-cream-50 hover:underline" href="/">Home</a></li>
+        <li><a class="hover:text-cream-50 hover:underline" href="/commodities/">Commodities</a></li>
+        <li><a class="hover:text-cream-50 hover:underline" href="/how-it-works/">How It Works</a></li>
+        <li><a class="hover:text-cream-50 hover:underline" href="/about/">About Us</a></li>
+        <li><a class="hover:text-cream-50 hover:underline" href="/contact/">Contact / Post Requirement</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Footer — commodities">
+      <p class="font-display font-semibold">Commodities</p>
+      <ul class="mt-3 space-y-2 text-sm text-cream-100/80">
+        {
+          commodities.map((c) => (
+            <li>
+              <a class="hover:text-cream-50 hover:underline" href={`/commodities/${c.slug}/`}>
+                {c.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div>
+      <p class="font-display font-semibold">Contact</p>
+      <address class="mt-3 space-y-2 text-sm not-italic text-cream-100/80">
+        <p>
+          {SITE.address.locality}, {SITE.address.district},<br />
+          {SITE.address.region} {SITE.address.postalCode}
+        </p>
+        <p>
+          <a class="hover:text-cream-50 hover:underline" href={`tel:${SITE.phoneRaw}`}>
+            {SITE.phoneDisplay}
+          </a>
+        </p>
+        <p>
+          <a
+            class="hover:text-cream-50 hover:underline"
+            href={WHATSAPP_LINK}
+            rel="noopener"
+            target="_blank">WhatsApp us</a
+          >
+        </p>
+        <p>
+          <a class="hover:text-cream-50 hover:underline" href={`mailto:${SITE.email}`}>
+            {SITE.email}
+          </a>
+        </p>
+      </address>
+    </div>
+  </div>
+  <div class="border-t border-cream-100/10 py-4 text-center text-xs text-cream-100/60">
+    © {year} {SITE.name}, Challakere. All rights reserved.
+  </div>
+</footer>

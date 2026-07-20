@@ -221,7 +221,7 @@ export const commodities: Commodity[] = [
     kannada: 'ಹೊಟ್ಟು',
     emoji: '🌿',
     card: 'Pulse husk and chuni from dal mills — nutritious cattle-feed ingredients supplied in bulk.',
-    seoTitle: 'Pulse Husk (Chuni) for Cattle Feed | Feed Husk Broker Challakere',
+    seoTitle: 'Feed Husk Buyers & Sellers | Pulse Husk (Chuni) Broker Challakere',
     seoDescription:
       'Feed husk broker in Challakere, Karnataka — pulse husk and chuni from dal mills for cattle feed manufacturers, dairies and feed mixers. Bulk supply. Post your requirement.',
     h1: 'Feed Husk Broker in Challakere — Pulse Husk & Chuni in Bulk',
@@ -317,7 +317,7 @@ export const commodities: Commodity[] = [
     kannada: 'ಬಟಾಣಿ',
     emoji: '🫛',
     card: 'Dried white and green peas (batani) for flour mills, snack makers and wholesale traders.',
-    seoTitle: 'Dried Peas (Batani) Broker Karnataka | White & Green Peas Wholesale',
+    seoTitle: 'Dried Peas Buyers & Sellers | Batani Broker Karnataka Wholesale',
     seoDescription:
       'Dried peas (batani) broker in Challakere, Karnataka — white peas and green peas for wholesalers, snack manufacturers and flour mills across South India.',
     h1: 'Dried Peas (Batani) Broker in Challakere, Karnataka',
@@ -349,7 +349,7 @@ export const commodities: Commodity[] = [
     kannada: 'ಕಡಲೆ ಹಿಟ್ಟು',
     emoji: '🫓',
     card: 'Besan (gram flour) from flour mills to sweet makers, namkeen units and wholesale distributors.',
-    seoTitle: 'Gram Flour (Besan) Broker Karnataka | Wholesale Besan Suppliers',
+    seoTitle: 'Besan Buyers & Wholesale Suppliers | Gram Flour Broker Karnataka',
     seoDescription:
       'Gram flour (besan) broker in Challakere, Karnataka. We connect besan mills with sweet manufacturers, namkeen units and wholesale distributors across South India.',
     h1: 'Gram Flour (Besan) Broker in Challakere, Karnataka',
@@ -381,7 +381,7 @@ export const commodities: Commodity[] = [
     kannada: 'ಗೇರು ಹಿಂಡಿ',
     emoji: '🔥',
     card: 'Cashew shell cake — a high-calorific boiler fuel — brokered in bulk from processing units to industries.',
-    seoTitle: 'Cashew Shell Cake for Burning | Boiler Fuel Supplier Karnataka',
+    seoTitle: 'Cashew Cake Buyers & Suppliers | Shell Cake Boiler Fuel Karnataka',
     seoDescription:
       'Cashew cake (de-oiled cashew shell cake) broker in Challakere, Karnataka — high-calorific-value boiler and furnace fuel supplied in bulk to industries across South India.',
     h1: 'Cashew Cake (Shell Cake) for Burning — Bulk Boiler Fuel',

@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SITE, WHATSAPP_LINK } from '../config';
+import { commodities } from '../data/commodities';
+
+const title = 'Agri Commodity Buyers & Sellers in Tamil Nadu | Subbaraju Brokerage';
+const description =
+  'Looking for agri commodity buyers or sellers in Tamil Nadu? Subbaraju Brokerage connects TN feed mills, wholesalers and processors with Karnataka suppliers — maize, rice, pulses, fried gram, besan, cashew cake and more.';
+---
+
+<Layout title={title} description={description}>
+  <section class="mx-auto max-w-4xl px-4 pt-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-ink/60">
+      <a href="/" class="hover:underline">Home</a> › <span>Tamil Nadu</span>
+    </nav>
+    <h1 class="mt-4 font-display text-4xl font-semibold leading-tight text-forest-800">
+      Agri Commodity Buyers & Sellers in Tamil Nadu
+    </h1>
+    <p class="mt-5 text-lg leading-relaxed text-ink/85">
+      If you are a feed mill, wholesaler, processor or trader in Tamil Nadu looking for reliable
+      commodity buyers or sellers, Subbaraju Brokerage can help. We are agricultural commodity
+      brokers based in Challakere, Karnataka, and Tamil Nadu is one of the regular destinations
+      for the commodities we broker — connected by direct highway routes from central Karnataka.
+    </p>
+
+    <h2 class="mt-10 font-display text-2xl font-semibold text-forest-700">
+      What Moves Between Karnataka and Tamil Nadu
+    </h2>
+    <p class="mt-3 leading-relaxed text-ink/85">
+      The trade lanes between the two states are busy year-round: maize from the
+      Chitradurga–Davanagere belt into Tamil Nadu’s poultry heartland around Namakkal, ragi and
+      pulses into TN’s flour mills and wholesale markets, fried gram and besan into snack and
+      sweet manufacturing, and biomass fuels like cashew shell cake moving to and from the
+      state’s processing clusters. Whichever direction your goods move, we can put a verified
+      counterparty on the other end.
+    </p>
+
+    <h2 class="mt-10 font-display text-2xl font-semibold text-forest-700">
+      For Tamil Nadu Buyers
+    </h2>
+    <p class="mt-3 leading-relaxed text-ink/85">
+      Poultry and cattle feed mills, flour mills, namkeen and sweet manufacturers, wholesalers
+      and distributors: source maize, rice, ragi, pulses, fried gram, besan and feed husk
+      directly from Karnataka mills and growers through us — quality agreed before dispatch and
+      full lorry-load logistics arranged to your gate.
+    </p>
+
+    <h2 class="mt-10 font-display text-2xl font-semibold text-forest-700">
+      For Tamil Nadu Sellers
+    </h2>
+    <p class="mt-3 leading-relaxed text-ink/85">
+      Processors and traders in TN with material Karnataka needs — cashew shell cake, pulses,
+      processed goods: we connect you with verified buyers in Karnataka’s industrial and
+      wholesale markets, negotiate a fair rate and stay on the deal until payment is settled.
+    </p>
+
+    <h2 class="mt-10 font-display text-2xl font-semibold text-forest-700">Commodities We Broker</h2>
+    <ul class="mt-4 flex flex-wrap gap-2">
+      {
+        commodities.map((c) => (
+          <li>
+            <a
+              href={`/commodities/${c.slug}/`}
+              class="inline-block rounded-full border border-forest-600/20 bg-cream-50 px-4 py-1.5 text-sm font-medium text-forest-700 transition hover:border-forest-600/50"
+            >
+              {c.emoji} {c.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="mt-8 rounded-2xl bg-forest-100/60 p-6 text-lg leading-relaxed text-forest-800">
+      We work in English and Hindi with our Tamil Nadu partners — call
+      <a href={`tel:${SITE.phoneRaw}`} class="font-semibold underline underline-offset-4">{SITE.phoneDisplay}</a>,
+      <a href={WHATSAPP_LINK} target="_blank" rel="noopener" class="font-semibold underline underline-offset-4">WhatsApp us</a>,
+      or post your requirement below and we will call you back.
+    </p>
+  </section>
+
+  <CtaBand
+    heading="Buying or selling in Tamil Nadu?"
+    sub="Post your requirement — commodity, quantity and expected price — and we will match you with a verified counterparty."
+  />
+</Layout>

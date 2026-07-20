@@ -26,9 +26,9 @@ export const commodities: Commodity[] = [
     kannada: 'ಅಕ್ಕಿ',
     emoji: '🍚',
     card: 'Sona Masoori, steam and raw rice from Karnataka mills, matched with wholesale buyers across South India.',
-    seoTitle: 'Rice Broker in Challakere, Karnataka | Subbaraju Brokerage',
+    seoTitle: 'Rice Buyers & Sellers | Rice Broker Challakere, Karnataka',
     seoDescription:
-      'Trusted rice broker in Challakere connecting rice mills with wholesale buyers and distributors. Sona Masoori, steam rice, raw rice. Post your requirement today.',
+      'Rice buyers and sellers connected by Subbaraju Brokerage, Challakere. Mills, wholesalers and distributors across Karnataka, Andhra Pradesh and Tamil Nadu. Sona Masoori, steam and raw rice.',
     h1: 'Rice Broker in Challakere, Karnataka',
     intro: [
       'Subbaraju Brokerage connects rice mills and processors with wholesale rice buyers, distributors and retailers across Karnataka and neighbouring states. Working from Challakere in Chitradurga district, we sit at the crossroads of Karnataka’s rice trade — with milling belts in Davanagere, Raichur and Gangavathi to the north and large consumption markets in Bengaluru, Tumakuru and beyond to the south.',
@@ -189,9 +189,9 @@ export const commodities: Commodity[] = [
     kannada: 'ಹುರಿಗಡಲೆ',
     emoji: '🥣',
     card: 'Hurigadale (roasted gram) — a Karnataka staple — brokered from roasting units to wholesalers and namkeen makers.',
-    seoTitle: 'Fried Gram (Hurigadale) Broker Challakere | Roasted Gram Suppliers',
+    seoTitle: 'Fried Gram Buyers & Sellers | Hurigadale Broker Challakere',
     seoDescription:
-      'Fried gram (hurigadale / roasted gram) broker in Challakere, Karnataka. We connect roasting units with wholesale buyers, namkeen and chutney-powder makers.',
+      'Fried gram (hurigadale) buyers and sellers across Karnataka, Andhra Pradesh and Tamil Nadu — connected by Subbaraju Brokerage, Challakere. Roasting units to wholesalers and namkeen makers.',
     h1: 'Fried Gram (Hurigadale) Broker in Challakere',
     intro: [
       'Fried gram — hurigadale in Kannada, also called roasted gram or putani — is an everyday staple in South Indian kitchens, ground into chutneys, mixed into namkeen and sold loose in every kirana store. Karnataka has a strong network of traditional roasting units, and Subbaraju Brokerage brokers their output to wholesalers, distributors, namkeen manufacturers and chutney-powder makers.',

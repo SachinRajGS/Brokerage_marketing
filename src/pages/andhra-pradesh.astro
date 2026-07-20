@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SITE, WHATSAPP_LINK } from '../config';
+import { commodities } from '../data/commodities';
+
+const title = 'Agri Commodity Buyers & Sellers in Andhra Pradesh | Subbaraju Brokerage';
+const description =
+  'Looking for agri commodity buyers or sellers in Andhra Pradesh? Subbaraju Brokerage connects AP traders, mills and feed plants with Karnataka suppliers — maize, rice, groundnut, pulses, fried gram, besan and more.';
+---
+
+<Layout title={title} description={description}>
+  <section class="mx-auto max-w-4xl px-4 pt-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-ink/60">
+      <a href="/" class="hover:underline">Home</a> › <span>Andhra Pradesh</span>
+    </nav>
+    <h1 class="mt-4 font-display text-4xl font-semibold leading-tight text-forest-800">
+      Agri Commodity Buyers & Sellers in Andhra Pradesh
+    </h1>
+    <p class="mt-5 text-lg leading-relaxed text-ink/85">
+      If you are a trader, mill, feed plant or wholesaler in Andhra Pradesh looking for reliable
+      commodity buyers or sellers, Subbaraju Brokerage can help. We are agricultural commodity
+      brokers based in Challakere, Karnataka — right on the AP border trade routes — and a large
+      part of our daily business moves between Karnataka and Andhra Pradesh in both directions.
+    </p>
+
+    <h2 class="mt-10 font-display text-2xl font-semibold text-forest-700">
+      What Moves Between Karnataka and Andhra Pradesh
+    </h2>
+    <p class="mt-3 leading-relaxed text-ink/85">
+      Challakere sits in Karnataka’s dryland belt adjoining Rayalaseema, and the trade lanes are
+      well worn: maize from the Chitradurga–Davanagere belt into AP’s poultry and feed industry,
+      groundnut moving both ways between the Challakere market and the Anantapur–Rayalaseema
+      groundnut belt, and fried gram, gram dal, besan and other pulse products from Karnataka
+      mills into AP wholesale markets. Whatever side of that flow you are on, we likely already
+      trade with your counterparties.
+    </p>
+
+    <h2 class="mt-10 font-display text-2xl font-semibold text-forest-700">
+      For Andhra Pradesh Buyers
+    </h2>
+    <p class="mt-3 leading-relaxed text-ink/85">
+      Feed mills, poultry integrators, wholesalers and distributors in AP: source maize, rice,
+      groundnut, pulses, fried gram, besan and feed husk directly from Karnataka mills and
+      growers through us — quality agreed before dispatch, lorry-load logistics arranged, and a
+      broker who answers the phone in Telugu.
+    </p>
+
+    <h2 class="mt-10 font-display text-2xl font-semibold text-forest-700">
+      For Andhra Pradesh Sellers
+    </h2>
+    <p class="mt-3 leading-relaxed text-ink/85">
+      Groundnut traders, dal mills and processors in AP: reach verified Karnataka buyers beyond
+      your local circle. We quote realistic same-day rates pegged to the Challakere and Karnataka
+      mandi markets and follow up on payment until you are settled.
+    </p>
+
+    <h2 class="mt-10 font-display text-2xl font-semibold text-forest-700">Commodities We Broker</h2>
+    <ul class="mt-4 flex flex-wrap gap-2">
+      {
+        commodities.map((c) => (
+          <li>
+            <a
+              href={`/commodities/${c.slug}/`}
+              class="inline-block rounded-full border border-forest-600/20 bg-cream-50 px-4 py-1.5 text-sm font-medium text-forest-700 transition hover:border-forest-600/50"
+            >
+              {c.emoji} {c.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="mt-8 rounded-2xl bg-forest-100/60 p-6 text-lg leading-relaxed text-forest-800">
+      We speak Telugu, Kannada, Hindi and English — call
+      <a href={`tel:${SITE.phoneRaw}`} class="font-semibold underline underline-offset-4">{SITE.phoneDisplay}</a>,
+      <a href={WHATSAPP_LINK} target="_blank" rel="noopener" class="font-semibold underline underline-offset-4">WhatsApp us</a>,
+      or post your requirement below and we will call you back.
+    </p>
+  </section>
+
+  <CtaBand
+    heading="Buying or selling in Andhra Pradesh?"
+    sub="Post your requirement — commodity, quantity and expected price — and we will match you with a verified counterparty."
+  />
+</Layout>

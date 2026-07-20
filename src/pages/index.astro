@@ -27,6 +27,39 @@ const whyUs = [
   },
 ];
 
+const faqs = [
+  {
+    q: 'Where can I find genuine buyers or sellers for rice, maize, groundnut or pulses in Karnataka?',
+    a: 'Post your requirement with Subbaraju Brokerage — we maintain a working network of verified mills, traders, wholesalers and feed plants across Karnataka, Andhra Pradesh and Tamil Nadu, and we connect you directly with a counterparty instead of giving you a stale contact list.',
+  },
+  {
+    q: 'How do I get a buyers and sellers list for commodities like fried gram, toor dal or besan?',
+    a: 'Published buyer–seller lists go out of date quickly and are full of inactive numbers. A broker works differently: tell us what you want to buy or sell, and we match you with a party we actually trade with — verified, active, and interested in your specific quantity and grade.',
+  },
+  {
+    q: 'Do you connect buyers and sellers outside Karnataka?',
+    a: 'Yes. We regularly broker deals into Andhra Pradesh and Tamil Nadu — maize to poultry belts, pulses and fried gram to wholesale markets, groundnut across the Rayalaseema border trade, and more. We speak Kannada, Telugu, Hindi and English.',
+  },
+  {
+    q: 'What does it cost to post a requirement?',
+    a: 'Nothing. Posting a requirement is free and there is no charge for matching. We earn a standard market brokerage only on completed deals, agreed openly with both sides before the deal is fixed.',
+  },
+  {
+    q: 'How quickly will I get a response?',
+    a: 'Usually the same day. Requirements posted on the website reach us instantly on WhatsApp and in our system, and we call back with a workable market rate — typically within a few working hours.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
 const steps = [
   { n: '1', t: 'Post your requirement', d: 'Tell us what you want to buy or sell — commodity, quantity and expected price.' },
   { n: '2', t: 'We match & negotiate', d: 'We find the right counterparty from our network and negotiate a fair market rate.' },
@@ -166,6 +199,33 @@ const steps = [
       </a>
     </p>
   </section>
+
+  <!-- FAQ -->
+  <section class="mx-auto mt-16 max-w-4xl px-4">
+    <h2 class="text-center font-display text-3xl font-semibold text-forest-800">
+      Frequently Asked Questions
+    </h2>
+    <div class="mt-8 space-y-4">
+      {
+        faqs.map((f) => (
+          <details class="group rounded-2xl border border-forest-600/10 bg-cream-50 p-5">
+            <summary class="cursor-pointer font-display text-lg font-semibold text-forest-700 marker:text-forest-500">
+              {f.q}
+            </summary>
+            <p class="mt-3 leading-relaxed text-ink/80">{f.a}</p>
+          </details>
+        ))
+      }
+    </div>
+    <p class="mt-6 text-center text-ink/75">
+      Also serving buyers and sellers in
+      <a href="/andhra-pradesh/" class="font-semibold text-forest-600 underline underline-offset-4">Andhra Pradesh</a>
+      and
+      <a href="/tamil-nadu/" class="font-semibold text-forest-600 underline underline-offset-4">Tamil Nadu</a>.
+    </p>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 
   <CtaBand />
 </Layout>
